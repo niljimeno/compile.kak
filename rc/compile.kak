@@ -9,7 +9,7 @@ compile -docstring \
         # create a script and save it in /tmp
         echo "#!/bin/sh
         defaultCommand=\"\$(cat $outputLast)\"
-        read -p \"Compile [\$defaultCommand]: \" command
+        read -p \"Run: \" -i \$defaultCommand command
         command=\${command:-\$defaultCommand}
         echo \$command > $outputLast
         sh $outputLast
@@ -35,7 +35,7 @@ compile-quick -docstring \
         echo "#!/bin/sh
         defaultCommand=\"\$(cat $outputLast)\"
         if [[ -z \"\$defaultCommand\" ]]; then
-            read -p \"Compile [\$defaultCommand]: \" command
+            read -p \"Run: \" -i \$defaultCommand command
             command=\${command:-\$defaultCommand}
             echo \$command > $outputLast
         else
